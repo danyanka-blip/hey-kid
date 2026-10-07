@@ -1,0 +1,156 @@
+body {
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: monospace;
+}
+/* Bezel container styled like a classic Mac */
+.mac-case {
+    background: #e2d9c8; /* Classic Apple putty/beige color */
+    border-radius: 24px 24px 10px 10px;
+    padding: 40px 30px 60px 30px;
+    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.2), 10px 15px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Dark bezel framing the curved display screen */
+.crt-screen-bezel {
+    background: #111;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: inset 0px 5px 10px rgba(0,0,0,0.8);
+    position: relative;
+}
+/* Soft CRT glass reflection over the screen */
+.crt-glow {
+    position: absolute;
+    inset: 15px;
+    border-radius: 8px;
+    background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.12), transparent 60%);
+    pointer-events: none;
+    z-index: 10;
+}
+/* The simulated CRT Canvas surface container */
+.mac-desktop {
+    width: 512px;
+    height: 342px;
+    background-color: #999; /* Classic 50% gray stipple substitute */
+    background-image: radial-gradient(#aaa 25%, transparent 25%), radial-gradient(#aaa 25%, transparent 25%);
+    background-size: 4px 4px;
+    background-position: 0 0, 2px 2px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: default;
+    user-select: none;
+}
+.menu-bar {
+    background: white;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.apple-logo {
+    width: 12px;
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 14'%3E%3Cpath d='M8 0c0 1.5-1 3-2.5 3C5.5 1.5 6.5 0 8 0zM6 4c1-.5 2-.8 3-.3 1 .4 1.7 1.1 2 1.8-1.6.9-1.7 3.4 0 4.3-.5 1.6-1.7 3.7-3 3.7-.9 0-1.2-.5-2-.5s-1.2.5-2 .5C2.5 13.5 0 10 0 7c0-2.5 1.5-3.6 3-3.6 1.2 0 2 .6 3 .6z' fill='black'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.hidden { display: none !important; }
+
+/* Desktop icons */
+.icon {
+    position: absolute;
+    top: 40px;
+    right: 16px;
+    width: 72px;
+    text-align: center;
+    font-size: 11px;
+}
+.icon-pic { font-size: 28px; filter: grayscale(1) contrast(2); }
+.icon-label { background: white; padding: 0 3px; display: inline-block; margin-top: 2px; }
+.icon.selected .icon-pic { filter: grayscale(1) contrast(2) invert(1); }
+.icon.selected .icon-label { background: black; color: white; }
+
+/* Windows (System 1 look) */
+.window {
+    position: absolute;
+    top: 60px;
+    left: 140px;
+    background: white;
+    border: 1px solid black;
+    box-shadow: 1px 1px 0 black;
+    font-size: 12px;
+}
+.window-titlebar {
+    position: relative;
+    height: 18px;
+    border-bottom: 1px solid black;
+    background: repeating-linear-gradient(to bottom, white 0 2px, black 2px 3px);
+    background-clip: content-box;
+    padding: 3px 2px;
+    box-sizing: border-box;
+    cursor: move;
+}
+.window-titlebar .title {
+    position: absolute;
+    left: 50%;
+    top: 1px;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0 6px;
+    font-weight: bold;
+    line-height: 15px;
+}
+.close-box {
+    position: absolute;
+    left: 8px;
+    top: 3px;
+    width: 9px;
+    height: 9px;
+    background: white;
+    border: 1px solid black;
+    box-shadow: 0 0 0 2px white;
+    cursor: pointer;
+}
+.close-box:active { background: black; }
+.window-content { padding: 6px; }
+
+/* Calculator */
+#calc-display {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    font: inherit;
+    text-align: right;
+    padding: 2px 4px;
+    margin-bottom: 6px;
+}
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 28px);
+    gap: 4px;
+}
+.calc-grid button {
+    height: 22px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    font: inherit;
+    cursor: pointer;
+}
+.calc-grid button:active { background: black; color: white; }
+
+.mac-badge {
+    margin-top: 24px;
+    color: #6b6457;
+    font-size: 13px;
+    letter-spacing: 1px;
+}

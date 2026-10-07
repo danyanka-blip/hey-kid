@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System-1984 Simulation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- The Retro Macintosh Bezel Wrapper -->
+    <div class="mac-case">
+        <div class="crt-screen-bezel">
+            <div class="crt-glow"></div>
+            <div id="desktop" class="mac-desktop">
+                <!-- Top Menu Bar -->
+                <div class="menu-bar">
+                    <span class="apple-logo"></span>
+                    <span>File</span>
+                    <span>Edit</span>
+                    <span>Special</span>
+                </div>
+
+                <!-- Desktop Icons -->
+                <div class="icon" id="icon-calc" onclick="openCalculator()">
+                    <div class="icon-pic">🧮</div>
+                    <div class="icon-label">Calculator</div>
+                </div>
+
+                <!-- Calculator Window Structure -->
+                <div id="calc-window" class="window hidden">
+                    <div class="window-titlebar">
+                        <div class="close-box" onclick="closeCalculator()"></div>
+                        <div class="title">Calculator</div>
+                    </div>
+                    <div class="window-content">
+                        <input type="text" id="calc-display" readonly value="0">
+                        <div class="calc-grid">
+                            <button onclick="pressKey('7')">7</button>
+                            <button onclick="pressKey('8')">8</button>
+                            <button onclick="pressKey('9')">9</button>
+                            <button onclick="pressKey('/')">/</button>
+                            <button onclick="pressKey('4')">4</button>
+                            <button onclick="pressKey('5')">5</button>
+                            <button onclick="pressKey('6')">6</button>
+                            <button onclick="pressKey('*')">*</button>
+                            <button onclick="pressKey('1')">1</button>
+                            <button onclick="pressKey('2')">2</button>
+                            <button onclick="pressKey('3')">3</button>
+                            <button onclick="pressKey('-')">-</button>
+                            <button onclick="pressKey('0')">0</button>
+                            <button onclick="pressKey('C')">C</button>
+                            <button onclick="pressKey('=')">=</button>
+                            <button onclick="pressKey('+')">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mac-badge">Macintosh 1984</div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
